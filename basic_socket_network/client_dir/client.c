@@ -11,12 +11,12 @@ void set_socket_address(struct sockaddr_in *socket_address)
 	socket_address->sin_port = htons(SERVER_PORT);
 }
 
-int get_response(int socket_fd) {
+int get_response(int socket_fd)
+{
 	char	buffer[BUFFER_SIZE];
 	ssize_t	bytes;
 
 	while (1) {
-
 		// サーバーからの応答を受信
 		bytes = recv(socket_fd, &buffer, BUFFER_SIZE, DEFAULT_RECV_FALG);
 		if (bytes == ERROR) {
